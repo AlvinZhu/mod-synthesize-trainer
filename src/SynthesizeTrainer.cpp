@@ -9,10 +9,10 @@ public:
 
     bool OnGossipHello(Player *player, Creature *creature) override
     {
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "|TInterface/ICONS/Achievement_Character_Bloodelf_Female.blp:35:35:-19:0|t 职业技能训练.", 1, 1);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "|TInterface/ICONS/Trade_Mining.blp:35:35:-19:0|t 商业技能训练.", 1, 2);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "|TInterface/ICONS/Achievement_Halloween_Witch_01.blp:35:35:-19:0|t 骑术技能训练.", 1, 3);
-        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "|TInterface/ICONS/INV_Axe_100.blp:35:35:-19:0|t 武器技能训练.", 1, 4);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "职业技能训练.", 1, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "商业技能训练.", 1, 2);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "骑术技能训练.", 1, 3);
+        AddGossipItemFor(player, GOSSIP_ICON_CHAT, "武器技能训练.", 1, 4);
         SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, creature);
         return true;
     }
@@ -92,20 +92,20 @@ public:
     static void learnPSkill(Player* player, Creature* creature)
     {
         player->PlayerTalkClass->ClearMenus();
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Mining.blp:20:20:-18:0|t 采矿训练", 2, 1);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Herbalism.blp:20:20:-18:0|t 草药训练.", 2, 2);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Alchemy.blp:20:20:-18:0|t 炼金训练.", 2, 3);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Engraving.blp:20:20:-18:0|t 附魔训练", 2, 4);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_BlackSmithing.blp:20:20:-18:0|t 锻造训练", 2, 5);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Tailoring.blp:20:20:-18:0|t 裁缝训练", 2, 6);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Engineering.blp:20:20:-18:0|t 工程训练", 2, 7);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/INV_Misc_Gem_01.blp:20:20:-18:0|t 珠宝训练", 2, 8);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_LeatherWorking.blp:20:20:-18:0|t 制皮训练", 2, 9);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/INV_Misc_Pelt_Wolf_01.blp:20:20:-18:0|t 剥皮训练", 2, 10);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/INV_Inscription_Tradeskill01.blp:20:20:-18:0|t 铭文训练", 2, 11);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/INV_Misc_Food_15.blp:20:20:-18:0|t 烹饪训练", 2, 12);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Trade_Fishing.blp:20:20:-18:0|t 钓鱼训练", 2, 13);
-        AddGossipItemFor(player, GOSSIP_ICON_VENDOR, "|TInterface/ICONS/Spell_Holy_SealOfSacrifice.blp:20:20:-18:0|t 急救训练", 2, 14);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "采矿训练", 2, 1);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "草药训练.", 2, 2);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "炼金训练.", 2, 3);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "附魔训练", 2, 4);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "锻造训练", 2, 5);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "裁缝训练", 2, 6);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "工程训练", 2, 7);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "珠宝训练", 2, 8);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "制皮训练", 2, 9);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "剥皮训练", 2, 10);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "铭文训练", 2, 11);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "烹饪训练", 2, 12);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "钓鱼训练", 2, 13);
+        AddGossipItemFor(player, GOSSIP_ICON_TRAINER, "急救训练", 2, 14);
         SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, creature);
         
     }
