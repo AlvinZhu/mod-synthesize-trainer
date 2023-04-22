@@ -1,6 +1,7 @@
 #include "ScriptMgr.h"
 #include "Player.h"
 #include "ScriptedGossip.h"
+#include "Chat.h"
 
 class CreatureScript_SynthesizeTrainer : public CreatureScript
 {
@@ -13,6 +14,8 @@ public:
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "商业技能训练", 1, 2);
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "骑术技能训练", 1, 3);
         AddGossipItemFor(player, GOSSIP_ICON_CHAT, "武器技能训练", 1, 4);
+        if (player->GetSpecsCount() == 1 && player->getLevel() >= sWorld->getIntConfig(CONFIG_MIN_DUALSPEC_LEVEL))
+            AddGossipItemFor(player, GOSSIP_ICON_CHAT, "开双天赋专精", 1, 5);
         SendGossipMenuFor(player, DEFAULT_GOSSIP_MESSAGE, creature);
         return true;
     }
@@ -51,6 +54,15 @@ public:
             else if (action == 4) {
                 player->GetSession()->SendTrainerList(creature->GetGUID(), 190017);
                 CloseGossipMenuFor(player);
+            }
+            else if (action == 5) {
+                // Cast spells that teach dual spec
+                // Both are also ImplicitTarget self and must be cast by player
+                player->CastSpell(player, 63680, true, NULL, NULL, player->GetGUID());
+                player->CastSpell(player, 63624, true, NULL, NULL, player->GetGUID());
+
+                ChatHandler(player->GetSession()).PSendSysMessage("开双天赋专精成功!");
+                player->PlayerTalkClass->SendCloseGossip();
             }
         }
         else if (Sender == 2) {
